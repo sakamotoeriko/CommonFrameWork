@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OSs-sD-QE0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="iBI-Hv-E3h">
+            <objects>
+                <tableViewController id="4qg-jt-LwP" customClass="AlbumsViewController" customModule="CommonFrameWork" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3B6-Yf-71D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="grk-NM-E0x">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="grk-NM-E0x" id="Nex-Bc-fhf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4qg-jt-LwP" id="5S8-Mg-YkI"/>
+                            <outlet property="delegate" destination="4qg-jt-LwP" id="4Ia-fn-ocv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="2uj-OC-lBA"/>
+                    <connections>
+                        <segue destination="Z2S-AS-Ugy" kind="presentation" identifier="EditAlbum" id="P4e-kr-GuP"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZa-DU-aF7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="246" y="-323"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VS5-hV-EGR">
+            <objects>
+                <navigationController id="OSs-sD-QE0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w6K-98-CnX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4qg-jt-LwP" kind="relationship" relationship="rootViewController" id="mHl-iC-Kdf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAF-Aq-CQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-575" y="-323"/>
+        </scene>
+        <!--Edit Album View Controller-->
+        <scene sceneID="Uha-TQ-n2b">
+            <objects>
+                <viewController id="Z2S-AS-Ugy" customClass="EditAlbumViewController" customModule="CommonFrameWork" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6fo-fT-kg9"/>
+                        <viewControllerLayoutGuide type="bottom" id="rfI-Gb-dKo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oI8-uu-TOx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bW5-K5-pSK">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Edit" id="kcg-R5-Xn0">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DzH-HU-2vF">
+                                            <connections>
+                                                <action selector="cancel:" destination="Z2S-AS-Ugy" id="TeW-o4-KyX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="nJN-qc-ruS">
+                                            <connections>
+                                                <action selector="done:" destination="Z2S-AS-Ugy" id="44D-H5-UaZ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="Z2S-AS-Ugy" id="BqR-Qg-rNv"/>
+                                </connections>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnU-7x-Jdl">
+                                <rect key="frame" x="12" y="80" width="351" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6mB-lD-tS9">
+                                <rect key="frame" x="16" y="109" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didEditingChangedAuthorTextField:" destination="Z2S-AS-Ugy" eventType="editingChanged" id="9E4-Rq-0hq"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1p-GM-R6h">
+                                <rect key="frame" x="16" y="147" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5K-Tn-yFz">
+                                <rect key="frame" x="16" y="176" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didEditingChangedTitleTextField:" destination="Z2S-AS-Ugy" eventType="editingChanged" id="nXY-1d-t6d"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="UQQ-bX-ZW8">
+                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="503384382.444031">
+                                    <!--2016-12-14 04:59:42 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="create date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m95-AA-1Ug">
+                                <rect key="frame" x="16" y="422" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="r1p-GM-R6h" secondAttribute="trailing" id="4lL-Nl-qUA"/>
+                            <constraint firstAttribute="trailing" secondItem="UQQ-bX-ZW8" secondAttribute="trailing" id="Ac0-5q-EaO"/>
+                            <constraint firstItem="m95-AA-1Ug" firstAttribute="leading" secondItem="oI8-uu-TOx" secondAttribute="leadingMargin" id="C9z-VS-vut"/>
+                            <constraint firstItem="6mB-lD-tS9" firstAttribute="top" secondItem="TnU-7x-Jdl" secondAttribute="bottom" constant="8" id="L3s-oK-Kxy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m95-AA-1Ug" secondAttribute="trailing" id="MAq-ms-SBH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6mB-lD-tS9" secondAttribute="trailing" id="Vp1-M0-k9V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h5K-Tn-yFz" secondAttribute="trailing" id="YGg-Kx-90h"/>
+                            <constraint firstItem="r1p-GM-R6h" firstAttribute="leading" secondItem="oI8-uu-TOx" secondAttribute="leadingMargin" id="a9E-ag-yAx"/>
+                            <constraint firstItem="UQQ-bX-ZW8" firstAttribute="leading" secondItem="oI8-uu-TOx" secondAttribute="leading" id="bwg-GB-JLr"/>
+                            <constraint firstAttribute="trailing" secondItem="TnU-7x-Jdl" secondAttribute="trailing" constant="12" id="fse-Xv-DIp"/>
+                            <constraint firstItem="TnU-7x-Jdl" firstAttribute="leading" secondItem="oI8-uu-TOx" secondAttribute="leading" constant="12" id="iOA-a7-dKJ"/>
+                            <constraint firstItem="6mB-lD-tS9" firstAttribute="leading" secondItem="oI8-uu-TOx" secondAttribute="leadingMargin" id="jce-AA-2Gf"/>
+                            <constraint firstItem="rfI-Gb-dKo" firstAttribute="top" secondItem="UQQ-bX-ZW8" secondAttribute="bottom" id="mL2-pX-8Xo"/>
+                            <constraint firstItem="UQQ-bX-ZW8" firstAttribute="top" secondItem="m95-AA-1Ug" secondAttribute="bottom" constant="8" id="nVK-Pt-2hG"/>
+                            <constraint firstItem="r1p-GM-R6h" firstAttribute="top" secondItem="6mB-lD-tS9" secondAttribute="bottom" constant="8" id="p8f-UJ-aYV"/>
+                            <constraint firstItem="h5K-Tn-yFz" firstAttribute="top" secondItem="r1p-GM-R6h" secondAttribute="bottom" constant="8" id="rtX-7F-bhP"/>
+                            <constraint firstItem="TnU-7x-Jdl" firstAttribute="top" secondItem="oI8-uu-TOx" secondAttribute="top" constant="80" id="sM8-t1-9WY"/>
+                            <constraint firstItem="h5K-Tn-yFz" firstAttribute="leading" secondItem="oI8-uu-TOx" secondAttribute="leadingMargin" id="ykq-6Y-Dlz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cSl-eB-Pxq"/>
+                    </view>
+                    <connections>
+                        <outlet property="authorTextField" destination="6mB-lD-tS9" id="5p9-5I-y0o"/>
+                        <outlet property="createDatePicker" destination="UQQ-bX-ZW8" id="fLl-EC-qse"/>
+                        <outlet property="doneButton" destination="nJN-qc-ruS" id="nIX-sL-Fse"/>
+                        <outlet property="titleTextField" destination="h5K-Tn-yFz" id="vS6-ft-4JU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UTD-9Z-Vae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="-323"/>
+        </scene>
+    </scenes>
+</document>
