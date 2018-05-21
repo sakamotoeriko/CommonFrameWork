@@ -22,6 +22,7 @@
 		58CA384E20B16D05002102A1 /* LogPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA384D20B16D05002102A1 /* LogPrint.swift */; };
 		58CA385020B1732A002102A1 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA384F20B1732A002102A1 /* ApiManager.swift */; };
 		58CA385220B1ADA9002102A1 /* ArticleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA385120B1ADA9002102A1 /* ArticleMode.swift */; };
+		58CA387220B300AC002102A1 /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387120B300AC002102A1 /* NetWork.swift */; };
 		59CD24913AA20388B6950F26 /* Pods_CommonFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		58CA384D20B16D05002102A1 /* LogPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPrint.swift; sourceTree = "<group>"; };
 		58CA384F20B1732A002102A1 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		58CA385120B1ADA9002102A1 /* ArticleMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleMode.swift; sourceTree = "<group>"; };
+		58CA387120B300AC002102A1 /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
 		8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonFrameWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				58CA384D20B16D05002102A1 /* LogPrint.swift */,
+				58CA387120B300AC002102A1 /* NetWork.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				58CA383E20B101E4002102A1 /* AlbumMode.swift in Sources */,
 				58CA385020B1732A002102A1 /* ApiManager.swift in Sources */,
 				58CA384220B1041F002102A1 /* AlbumDAO.swift in Sources */,
+				58CA387220B300AC002102A1 /* NetWork.swift in Sources */,
 				58CA384820B14FEE002102A1 /* EditAlbumViewController.swift in Sources */,
 				5868C8EE20ADC37D00901F5D /* AlbumsViewController.swift in Sources */,
 				5868C90B20ADC61700901F5D /* DataManager.swift in Sources */,

@@ -34,8 +34,12 @@ class AlbumsViewController: UITableViewController,EditAlbumViewControllerDelegat
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         //テスト
         // 呼び出し側
-        ApiManager.instance.getArticles{ response in
+        /*ApiManager.instance.getArticles{ response in
             print(response)
+        }*/
+        
+        ApiManager.instance.getArticle(success: {response in LogPrint.whLog(response)}){
+            (error) in LogPrint.whLog(error.localizedDescription)
         }
         
     }

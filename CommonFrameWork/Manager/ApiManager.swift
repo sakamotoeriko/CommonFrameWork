@@ -14,27 +14,62 @@ class  ApiManager: NSObject {
     static let instance = ApiManager()
     
     struct ArticleMode: Codable {
-        let title: String
-        let user: String
+        let id: String
         let profile_image_url: String
         
     }
 
     private override init() {
         // シングルトン
+        if Connectivity.isConnectedToInternet {
+            print("ネットワーク利用できます")
+            // do some tasks..
+        }
     }
 
     //GET
     func getRequestWithURL(path :String,parameter:[String: AnyObject]?, success: @escaping (_ result: [String: AnyObject]) -> Void ,failure: @escaping (_ error: Error) -> Void ) -> Void {
-        Alamofire.request(path, method: .get, parameters: parameter, encoding: JSONEncoding.default).responseJSON { response in
-            
+        Alamofire.request(path, parameters: parameter, encoding: JSONEncoding.default).responseJSON { response in
+
             if response.error != nil {
                 failure(response.error!)
                 return;
             }
+
+            let message : String
+            if let httpStatusCode = response.response?.statusCode
+            {
+                let failureReason = "Tried to decode response with nil data."
+
+                switch(httpStatusCode) {
+                case 400:
+                    message = "Username or password not provided."
+                case 401:
+                    message = "Incorrect password for user."
+                default:
+                    message = "OK"
+                }
+                
+                let error =  NSError(domain: message,code: httpStatusCode,userInfo: nil)
+                failure(error)
+            } else {
+                //message = response.error!
+            }
             
-            if let JSON = response.result.value {
+           /* if let JSON = response.result.value {
                 success(JSON as! [String: AnyObject])
+            }*/
+            
+            let json = JSON(response.result.value)
+            var article: [String: String?] = [:]
+            
+            json.forEach { (_, json) in
+                article = [
+                    "profile_image_url": json["profile_image_url"].string,
+                    "id": json["id"].string
+                ]
+                //articles.append(article)
+                success(article as [String: AnyObject])
             }
             
             return
@@ -57,8 +92,6 @@ class  ApiManager: NSObject {
             return
         }
     }
-    
-    
     // delete、put
     //TODO
 }
@@ -77,6 +110,13 @@ extension ApiManager {
         
     }
 
+    //投稿データの取得処理
+    func getArticle(success: @escaping (_ result: [String: AnyObject]) -> Void , failure: @escaping (_ error: Error) -> Void) {
+        let parameter:Parameters = ["page":1, "per_page":"3"]
+        
+        getRequestWithURL(path: "https://qiita.com/api/v2/users",parameter:parameter as [String : AnyObject], success: success,failure: failure)
+    }
+    
     //アルバムデータの取得処理
     func getArticles(apiResponse: @escaping (_ responseArticles: [[String: String?]]) -> ()) {
         
