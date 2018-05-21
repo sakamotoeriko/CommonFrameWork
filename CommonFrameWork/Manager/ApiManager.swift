@@ -20,15 +20,28 @@ class  ApiManager: NSObject {
     }
 
     private override init() {
+    }
+
+    private func networkCheck()->Bool{
         // シングルトン
         if Connectivity.isConnectedToInternet {
             print("ネットワーク利用できます")
-            // do some tasks..
+            return true
+        // do some tasks..
+        }else{
+            print("ネットワーク利用できます")
+            return false
         }
     }
-
+    
     //GET
     func getRequestWithURL(path :String,parameter:[String: AnyObject]?, success: @escaping (_ result: [String: AnyObject]) -> Void ,failure: @escaping (_ error: Error) -> Void ) -> Void {
+        if (!networkCheck()){
+            let error =  NSError(domain: "ネットワーク接続できません！！！",code: -1,userInfo: nil)
+            failure(error)
+            return;
+        }
+        
         Alamofire.request(path, parameters: parameter, encoding: JSONEncoding.default).responseJSON { response in
 
             if response.error != nil {
@@ -39,19 +52,20 @@ class  ApiManager: NSObject {
             let message : String
             if let httpStatusCode = response.response?.statusCode
             {
-                let failureReason = "Tried to decode response with nil data."
+                //var error = kill
 
                 switch(httpStatusCode) {
                 case 400:
                     message = "Username or password not provided."
+                    let error =  NSError(domain: message,code: httpStatusCode,userInfo: nil)
+                    failure(error as! Error)
                 case 401:
                     message = "Incorrect password for user."
+                    let error =  NSError(domain: message,code: httpStatusCode,userInfo: nil)
+                    failure(error)
                 default:
                     message = "OK"
                 }
-                
-                let error =  NSError(domain: message,code: httpStatusCode,userInfo: nil)
-                failure(error)
             } else {
                 //message = response.error!
             }
@@ -111,8 +125,8 @@ extension ApiManager {
     }
 
     //投稿データの取得処理
-    func getArticle(success: @escaping (_ result: [String: AnyObject]) -> Void , failure: @escaping (_ error: Error) -> Void) {
-        let parameter:Parameters = ["page":1, "per_page":"3"]
+    func getArticle(parameter:Parameters,success: @escaping (_ result: [String: AnyObject]) -> Void , failure: @escaping (_ error: Error) -> Void) {
+        //let parameter:Parameters = ["page":1, "per_page":"3"]
         
         getRequestWithURL(path: "https://qiita.com/api/v2/users",parameter:parameter as [String : AnyObject], success: success,failure: failure)
     }

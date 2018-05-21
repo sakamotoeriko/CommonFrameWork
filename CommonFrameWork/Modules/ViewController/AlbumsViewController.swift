@@ -37,8 +37,9 @@ class AlbumsViewController: UITableViewController,EditAlbumViewControllerDelegat
         /*ApiManager.instance.getArticles{ response in
             print(response)
         }*/
+        let parameter:[String: Any] = ["page":"1", "per_page":"3"]
         
-        ApiManager.instance.getArticle(success: {response in LogPrint.whLog(response)}){
+        ApiManager.instance.getArticle(parameter:parameter,success: {response in LogPrint.whLog(response)}){
             (error) in LogPrint.whLog(error.localizedDescription)
         }
         
