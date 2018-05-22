@@ -20,9 +20,12 @@
 		58CA384A20B15D19002102A1 /* AlbumCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA384920B15D19002102A1 /* AlbumCache.swift */; };
 		58CA384C20B16B48002102A1 /* CommonConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA384B20B16B48002102A1 /* CommonConst.swift */; };
 		58CA384E20B16D05002102A1 /* LogPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA384D20B16D05002102A1 /* LogPrint.swift */; };
-		58CA385020B1732A002102A1 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA384F20B1732A002102A1 /* ApiManager.swift */; };
+		58CA385020B1732A002102A1 /* NetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA384F20B1732A002102A1 /* NetWorkManager.swift */; };
 		58CA385220B1ADA9002102A1 /* ArticleMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA385120B1ADA9002102A1 /* ArticleMode.swift */; };
 		58CA387220B300AC002102A1 /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387120B300AC002102A1 /* NetWork.swift */; };
+		58CA387720B3FD9D002102A1 /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387620B3FD9D002102A1 /* NewsApi.swift */; };
+		58CA387920B3FE25002102A1 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387820B3FE25002102A1 /* LoginApi.swift */; };
+		58CA387B20B3FEAC002102A1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387A20B3FEAC002102A1 /* NewsViewController.swift */; };
 		59CD24913AA20388B6950F26 /* Pods_CommonFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,9 +47,12 @@
 		58CA384920B15D19002102A1 /* AlbumCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCache.swift; sourceTree = "<group>"; };
 		58CA384B20B16B48002102A1 /* CommonConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConst.swift; sourceTree = "<group>"; };
 		58CA384D20B16D05002102A1 /* LogPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPrint.swift; sourceTree = "<group>"; };
-		58CA384F20B1732A002102A1 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		58CA384F20B1732A002102A1 /* NetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkManager.swift; sourceTree = "<group>"; };
 		58CA385120B1ADA9002102A1 /* ArticleMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleMode.swift; sourceTree = "<group>"; };
 		58CA387120B300AC002102A1 /* NetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
+		58CA387620B3FD9D002102A1 /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
+		58CA387820B3FE25002102A1 /* LoginApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
+		58CA387A20B3FEAC002102A1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonFrameWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +101,7 @@
 				5868C90620ADC49000901F5D /* Const */,
 				5868C90720ADC49700901F5D /* Utils */,
 				5868C90820ADC4C700901F5D /* Manager */,
+				58CA387520B3FD5D002102A1 /* API */,
 				5868C90220ADC40200901F5D /* Modules */,
 				5868C90120ADC3C300901F5D /* Main */,
 				5868C90020ADC3B800901F5D /* Base */,
@@ -155,6 +162,7 @@
 			children = (
 				5868C8ED20ADC37D00901F5D /* AlbumsViewController.swift */,
 				58CA384720B14FEE002102A1 /* EditAlbumViewController.swift */,
+				58CA387A20B3FEAC002102A1 /* NewsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -180,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				5868C90A20ADC61700901F5D /* DataManager.swift */,
-				58CA384F20B1732A002102A1 /* ApiManager.swift */,
+				58CA384F20B1732A002102A1 /* NetWorkManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -207,6 +215,15 @@
 				58CA384920B15D19002102A1 /* AlbumCache.swift */,
 			);
 			path = DAO;
+			sourceTree = "<group>";
+		};
+		58CA387520B3FD5D002102A1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				58CA387620B3FD9D002102A1 /* NewsApi.swift */,
+				58CA387820B3FE25002102A1 /* LoginApi.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		94D1DC39A56088116A610655 /* Frameworks */ = {
@@ -295,13 +312,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CommonFrameWork/Pods-CommonFrameWork-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -337,7 +352,8 @@
 				58CA384C20B16B48002102A1 /* CommonConst.swift in Sources */,
 				58CA384E20B16D05002102A1 /* LogPrint.swift in Sources */,
 				58CA383E20B101E4002102A1 /* AlbumMode.swift in Sources */,
-				58CA385020B1732A002102A1 /* ApiManager.swift in Sources */,
+				58CA387920B3FE25002102A1 /* LoginApi.swift in Sources */,
+				58CA385020B1732A002102A1 /* NetWorkManager.swift in Sources */,
 				58CA384220B1041F002102A1 /* AlbumDAO.swift in Sources */,
 				58CA387220B300AC002102A1 /* NetWork.swift in Sources */,
 				58CA384820B14FEE002102A1 /* EditAlbumViewController.swift in Sources */,
@@ -346,6 +362,8 @@
 				58CA385220B1ADA9002102A1 /* ArticleMode.swift in Sources */,
 				5868C8EC20ADC37D00901F5D /* AppDelegate.swift in Sources */,
 				58CA384520B10466002102A1 /* AlbumDataService.swift in Sources */,
+				58CA387720B3FD9D002102A1 /* NewsApi.swift in Sources */,
+				58CA387B20B3FEAC002102A1 /* NewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

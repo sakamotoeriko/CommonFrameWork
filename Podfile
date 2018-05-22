@@ -7,6 +7,6 @@ target 'CommonFrameWork' do
 
   # Pods for CommonFrameWork
   pod 'FMDB'
-  pod 'Alamofire'
-  pod 'SwiftyJSON'
+  pod 'Alamofire', '~> 4.7'
+  #pod 'AlamofireImage', '~> 3.3'
 end

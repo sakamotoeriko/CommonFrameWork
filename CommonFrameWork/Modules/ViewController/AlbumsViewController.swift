@@ -38,11 +38,13 @@ class AlbumsViewController: UITableViewController,EditAlbumViewControllerDelegat
             print(response)
         }*/
         let parameter:[String: Any] = ["page":"1", "per_page":"3"]
-        
-        ApiManager.instance.getArticle(parameter:parameter,success: {response in LogPrint.whLog(response)}){
-            (error) in LogPrint.whLog(error.localizedDescription)
-        }
-        
+//        
+//        ApiManager.instance.getArticle(parameter:parameter,success: {response in LogPrint.whLog(response)}){
+//            (error) in LogPrint.whLog(error.localizedDescription)
+//        }
+//        NetWorkManager.instance.getArticle(parameter:parameter,success: {response in LogPrint.whLog(response)}){
+//            (error) in LogPrint.whLog(error.localizedDescription)
+//        }
     }
     
     /// Notifies the view controller that its view is about to be removed from a view hierarchy.

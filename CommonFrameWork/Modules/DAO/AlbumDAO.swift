@@ -53,7 +53,7 @@ class AlbumDAO: NSObject {
 
     // アルバムテーブルの作成処理
     func create() {
-        DataManager.shareManager.db.executeUpdate(AlbumDAO.SQLCreate, withArgumentsIn: nil)
+        DataManager.shareManager.db.executeUpdate(AlbumDAO.SQLCreate, withArgumentsIn: [])
     }
     
     /// アルバムの新規作成処理.
@@ -66,7 +66,7 @@ class AlbumDAO: NSObject {
     func add(author: String, title: String, createDate: Date) -> AlbumMode? {
         var album: AlbumMode? = nil
         if DataManager.shareManager.db.executeUpdate(AlbumDAO.SQLInsert, withArgumentsIn: [author, title, createDate]) {
-            let albumId = DataManager.shareManager.db.lastInsertRowId()
+            let albumId = DataManager.shareManager.db.lastInsertRowId
             album = AlbumMode(albumId: Int(albumId), author: author, title: title, createDate: createDate)
         }
         
@@ -78,12 +78,12 @@ class AlbumDAO: NSObject {
     /// - Returns: Readed album.
     func read() -> Array<AlbumMode> {
         var albums = Array<AlbumMode>()
-        if let results = DataManager.shareManager.db.executeQuery(AlbumDAO.SQLSelect, withArgumentsIn: nil) {
+        if let results = DataManager.shareManager.db.executeQuery(AlbumDAO.SQLSelect, withArgumentsIn: []) {
             while results.next() {
                 let album = AlbumMode(albumId: results.long(forColumnIndex: 0),
-                                author: results.string(forColumnIndex: 1),
-                                title: results.string(forColumnIndex: 2),
-                                createDate: results.date(forColumnIndex: 3))
+                                      author: results.string(forColumnIndex: 1)!,
+                                      title: results.string(forColumnIndex: 2)!,
+                                      createDate: results.date(forColumnIndex: 3)!)
                 albums.append(album)
             }
         }

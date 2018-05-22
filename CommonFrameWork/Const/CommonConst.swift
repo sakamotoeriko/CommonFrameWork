@@ -19,4 +19,7 @@ class CommonConst {
     
     //アルバム
     static let APIAlbum: String = APIBaseURL + ""
+    
+    //記事新聞
+    static let APINews: String = "https://qiita.com/api/v2/users"
 }

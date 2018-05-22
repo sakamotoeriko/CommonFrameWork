@@ -8,4 +8,8 @@
 
 import Foundation
 
-
+class ArticleMode: Codable {
+    var id: String = ""
+    var profile_image_url: String = ""
+    
+}
