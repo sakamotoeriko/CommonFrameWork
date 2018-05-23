@@ -12,6 +12,7 @@ import Alamofire
 protocol APIDelegate {
     func complete(result: AnyObject)
     func failed(error: NSError)
+    func downLoadComplete(result: Bool,filepath:String)
 }
 
 class NetWorkManager: NSObject {
@@ -85,6 +86,60 @@ class NetWorkManager: NSObject {
             return
         }
     }
+    
+    //ファイルのダウンロード
+    func downLoad(downloadUrl:String, completion: @escaping (Bool,String) -> Void,failure: @escaping (_ error: Error) -> Void)->Void {
+        
+        /*let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            let file = directoryURL.appendingPathComponent(saveUrl, isDirectory: false)
+            return (file, [.createIntermediateDirectories, .removePreviousFile])
+        }*/
+
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+            let documentsURL = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
+            let fileURL = documentsURL.appendingPathComponent("Test.jpg")
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        
+        Alamofire.download(downloadUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, to: destination).response{ response in
+            if response.error == nil {
+                //completion(true,response.result.value! as AnyObject)
+                completion(true,(response.destinationURL?.path)!)
+            } else{
+                failure(response.error!)
+                return;
+            }
+        }
+    }
+    
+    //ファイルアップロード処理
+    /*let fileURL = NSBundle.mainBundle().URLForResource("hangge", withExtension: "zip")
+    
+    Alamofire.upload(.POST, "http://www.hangge.com/upload.php", file: fileURL!)
+    .progress { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
+    print(totalBytesWritten)
+    
+    // This closure is NOT called on the main queue for performance
+    // reasons. To update your ui, dispatch to the main queue.
+    dispatch_async(dispatch_get_main_queue()) {
+    print("Total bytes written on main queue: \(totalBytesWritten)")
+    }
+    }
+    .responseJSON { response in
+    debugPrint(response)
+    }*/
+    
+    
+    /*.downloadProgress(closure: <#T##Request.ProgressHandler##Request.ProgressHandler##(Progress) -> Void#>)) {
+    (bytesRead, totalBytesRead, totalBytesExpectedToRead) in
+    let percent = totalBytesRead*100/totalBytesExpectedToRead
+    print("已下载：\(totalBytesRead)  当前进度：\(percent)%")
+    
+    }*/
+    
+    
+    
     // delete、put
     //TODO
 }

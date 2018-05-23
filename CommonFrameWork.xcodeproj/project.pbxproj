@@ -26,6 +26,7 @@
 		58CA387720B3FD9D002102A1 /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387620B3FD9D002102A1 /* NewsApi.swift */; };
 		58CA387920B3FE25002102A1 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387820B3FE25002102A1 /* LoginApi.swift */; };
 		58CA387B20B3FEAC002102A1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387A20B3FEAC002102A1 /* NewsViewController.swift */; };
+		58CA387F20B621D3002102A1 /* DownLoadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387E20B621D3002102A1 /* DownLoadApi.swift */; };
 		59CD24913AA20388B6950F26 /* Pods_CommonFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		58CA387620B3FD9D002102A1 /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
 		58CA387820B3FE25002102A1 /* LoginApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
 		58CA387A20B3FEAC002102A1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		58CA387E20B621D3002102A1 /* DownLoadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownLoadApi.swift; sourceTree = "<group>"; };
 		8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonFrameWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -222,6 +224,7 @@
 			children = (
 				58CA387620B3FD9D002102A1 /* NewsApi.swift */,
 				58CA387820B3FE25002102A1 /* LoginApi.swift */,
+				58CA387E20B621D3002102A1 /* DownLoadApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				58CA387220B300AC002102A1 /* NetWork.swift in Sources */,
 				58CA384820B14FEE002102A1 /* EditAlbumViewController.swift in Sources */,
 				5868C8EE20ADC37D00901F5D /* AlbumsViewController.swift in Sources */,
+				58CA387F20B621D3002102A1 /* DownLoadApi.swift in Sources */,
 				5868C90B20ADC61700901F5D /* DataManager.swift in Sources */,
 				58CA385220B1ADA9002102A1 /* ArticleMode.swift in Sources */,
 				5868C8EC20ADC37D00901F5D /* AppDelegate.swift in Sources */,

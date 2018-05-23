@@ -22,4 +22,7 @@ class CommonConst {
     
     //記事新聞
     static let APINews: String = "https://qiita.com/api/v2/users"
+    
+    //写真
+    static let APIImage: String = "https://image.i-voce.jp/files/article/main/26g2CJBp_1486609909.jpg"
 }

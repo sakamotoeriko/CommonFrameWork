@@ -16,6 +16,8 @@ class NewsViewController: UIViewController{
     //APIの定義
     var newsApi:NewsApi?
     
+    var downLoadApi:DownLoadApi?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initApi()
@@ -31,12 +33,16 @@ class NewsViewController: UIViewController{
         //初期化
         newsApi = NewsApi();
         newsApi?.delegate = self;
+        //
+        downLoadApi = DownLoadApi();
+        downLoadApi?.delegate = self;
     }
     
     @IBAction func networkAction(_ sender: Any) {
         //呼び出す
-        newsApi?.getNews(page: "1", per_page: "3")
+        //newsApi?.getNews(page: "1", per_page: "3")
         //
+        downLoadApi?.downLoadZip(fileURL: "")
     }
     
 }
@@ -47,6 +53,15 @@ extension NewsViewController: APIDelegate {
         // 処理
         var news_ary:[ArticleMode] = result as! [ArticleMode]
         self.resultLable.text = news_ary[0].profile_image_url
+    }
+    
+    func downLoadComplete(result: Bool,filepath:String) {
+        // 処理
+        if (result){
+            //self.resultLable.text = news_ary[0].profile_image_url
+            self.resultLable.text = filepath
+        }
+        
     }
     
     func failed(error: NSError) {
