@@ -25,4 +25,7 @@ class CommonConst {
     
     //写真
     static let APIImage: String = "https://image.i-voce.jp/files/article/main/26g2CJBp_1486609909.jpg"
+    
+    //アップロードURL
+    static let APIUPLOAD_URL: String = "http://192.168.3.8/iosFileServer/uploadswift.php"
 }

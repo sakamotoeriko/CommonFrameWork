@@ -13,6 +13,7 @@ protocol APIDelegate {
     func complete(result: AnyObject)
     func failed(error: NSError)
     func downLoadComplete(result: Bool,filepath:String)
+    func upLoadComplete(result:AnyObject)
 }
 
 class NetWorkManager: NSObject {
@@ -113,23 +114,44 @@ class NetWorkManager: NSObject {
         }
     }
     
-    //ファイルアップロード処理
-    /*let fileURL = NSBundle.mainBundle().URLForResource("hangge", withExtension: "zip")
-    
-    Alamofire.upload(.POST, "http://www.hangge.com/upload.php", file: fileURL!)
-    .progress { bytesWritten, totalBytesWritten, totalBytesExpectedToWrite in
-    print(totalBytesWritten)
-    
-    // This closure is NOT called on the main queue for performance
-    // reasons. To update your ui, dispatch to the main queue.
-    dispatch_async(dispatch_get_main_queue()) {
-    print("Total bytes written on main queue: \(totalBytesWritten)")
+    //ファイルのダウンロード処理
+    func upLoad(uploadUrl:String, fileURL:URL,completion: @escaping (AnyObject)->Void, failure: @escaping (_ error: Error) -> Void)->Void {
+        //
+        let upfileName = fileURL.lastPathComponent;
+        Alamofire.upload(
+                multipartFormData: { (multipartFormData) in
+                multipartFormData.append(fileURL,
+                                         withName: "file",
+                                         fileName: upfileName,
+                                         mimeType: "multipart/form-data")
+                                         //mimeType: "video/mp4")
+                    
+        },to: uploadUrl,encodingCompletion: { encodingResult in
+            //headers: nil,
+                // file をエンコードした後のコールバック
+            switch encodingResult {
+                case .success(let upload, _, _):
+                    // upload は request の戻り値の DataRequest を継承したオブジェクトなので
+                    // request と同様にメソッドチェーンしたい項目はこの中で指定できます
+                    upload.responseString { response in
+                        guard let result = response.result.value else { return }
+                        print("json:\(result)")
+                        completion(result as AnyObject)
+                    }
+                    
+                    upload.uploadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
+                        print("進捗: \(progress.fractionCompleted)")
+                    }
+                    //進捗
+                    /*upload.uploadProgress(closure: { (progress) in
+                            print("Upload Progress: \(progress.fractionCompleted)")
+                        })*/
+                case .failure(let encodingError):
+                    print(encodingError)
+                    failure(encodingError)
+                }
+        })
     }
-    }
-    .responseJSON { response in
-    debugPrint(response)
-    }*/
-    
     
     /*.downloadProgress(closure: <#T##Request.ProgressHandler##Request.ProgressHandler##(Progress) -> Void#>)) {
     (bytesRead, totalBytesRead, totalBytesExpectedToRead) in

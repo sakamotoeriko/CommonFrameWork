@@ -27,6 +27,8 @@
 		58CA387920B3FE25002102A1 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387820B3FE25002102A1 /* LoginApi.swift */; };
 		58CA387B20B3FEAC002102A1 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387A20B3FEAC002102A1 /* NewsViewController.swift */; };
 		58CA387F20B621D3002102A1 /* DownLoadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387E20B621D3002102A1 /* DownLoadApi.swift */; };
+		58CA388120B6EEA3002102A1 /* UploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA388020B6EEA3002102A1 /* UploadApi.swift */; };
+		58CA388520B6F860002102A1 /* test.pptx in Resources */ = {isa = PBXBuildFile; fileRef = 58CA388420B6F85F002102A1 /* test.pptx */; };
 		59CD24913AA20388B6950F26 /* Pods_CommonFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		58CA387820B3FE25002102A1 /* LoginApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
 		58CA387A20B3FEAC002102A1 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		58CA387E20B621D3002102A1 /* DownLoadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownLoadApi.swift; sourceTree = "<group>"; };
+		58CA388020B6EEA3002102A1 /* UploadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadApi.swift; sourceTree = "<group>"; };
+		58CA388420B6F85F002102A1 /* test.pptx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pptx; sourceTree = "<group>"; };
 		8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonFrameWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -198,6 +202,7 @@
 		5868C90920ADC50300901F5D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				58CA388420B6F85F002102A1 /* test.pptx */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				58CA387620B3FD9D002102A1 /* NewsApi.swift */,
 				58CA387820B3FE25002102A1 /* LoginApi.swift */,
 				58CA387E20B621D3002102A1 /* DownLoadApi.swift */,
+				58CA388020B6EEA3002102A1 /* UploadApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				5868C8F620ADC37E00901F5D /* LaunchScreen.storyboard in Resources */,
 				5868C8F320ADC37E00901F5D /* Assets.xcassets in Resources */,
 				5868C8F120ADC37D00901F5D /* Main.storyboard in Resources */,
+				58CA388520B6F860002102A1 /* test.pptx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +375,7 @@
 				58CA384520B10466002102A1 /* AlbumDataService.swift in Sources */,
 				58CA387720B3FD9D002102A1 /* NewsApi.swift in Sources */,
 				58CA387B20B3FEAC002102A1 /* NewsViewController.swift in Sources */,
+				58CA388120B6EEA3002102A1 /* UploadApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,8 @@ class NewsViewController: UIViewController{
     
     var downLoadApi:DownLoadApi?
     
+    var uploadApi:UpLoadApi?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initApi()
@@ -33,22 +35,30 @@ class NewsViewController: UIViewController{
         //初期化
         newsApi = NewsApi();
         newsApi?.delegate = self;
-        //
+        //ダウンロード処理
         downLoadApi = DownLoadApi();
         downLoadApi?.delegate = self;
+        //zipファイルアップロード処理
+        // リソースファイルをアップロード
+        uploadApi = UpLoadApi();
+        uploadApi?.delegate = self;
+        
     }
     
     @IBAction func networkAction(_ sender: Any) {
         //呼び出す
         //newsApi?.getNews(page: "1", per_page: "3")
         //
-        downLoadApi?.downLoadZip(fileURL: "")
+        //downLoadApi?.downLoadZip(fileURL: CommonConst.APIImage)
+        let fileURL = Bundle.main.url(forResource: "test", withExtension: "pptx")
+        uploadApi?.UpLoadZip(fileURL: fileURL!);
     }
     
 }
 
 // MARK: - TaskDelegate
 extension NewsViewController: APIDelegate {
+    
     func complete(result: AnyObject) {
         // 処理
         var news_ary:[ArticleMode] = result as! [ArticleMode]
@@ -62,6 +72,12 @@ extension NewsViewController: APIDelegate {
             self.resultLable.text = filepath
         }
         
+    }
+    
+    func upLoadComplete(result: AnyObject) {
+        // 処理
+            //self.resultLable.text = news_ary[0].profile_image_url
+            self.resultLable.text = result as? String
     }
     
     func failed(error: NSError) {
