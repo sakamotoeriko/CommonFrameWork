@@ -22,7 +22,7 @@ class DownLoadApi:NSObject{
         //let parameter:[String: Any] = ["page":page, "per_page":per_page]
         
         //NetWorkManager.instance.downLoad(path: CommonConst.APIImage,parameter:nil, completion: {result,resData in
-        NetWorkManager.instance.downLoad(downloadUrl: fileURL, completion: {result, filePath in
+        try? NetWorkManager.instance.downLoad(downloadUrl: fileURL, completion: {result, filePath in
             if let result = result as? Bool {
                 //let result = try? JSONDecoder().decode(Array<ArticleMode>.self, from: data)
                 //success(result! as AnyObject)

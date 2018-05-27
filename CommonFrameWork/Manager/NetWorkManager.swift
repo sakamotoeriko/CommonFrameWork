@@ -18,7 +18,11 @@ protocol APIDelegate {
 
 class NetWorkManager: NSObject {
     static let instance = NetWorkManager()
-
+    //リクエスト
+    var downloadrequest: Alamofire.Request?
+    
+    var uploadresquest: AnyObject?
+    
     private override init() {
     }
 
@@ -89,7 +93,7 @@ class NetWorkManager: NSObject {
     }
     
     //ファイルのダウンロード
-    func downLoad(downloadUrl:String, completion: @escaping (Bool,String) -> Void,failure: @escaping (_ error: Error) -> Void)->Void {
+    func downLoad(downloadUrl:String, completion: @escaping (Bool,String) -> Void,failure: @escaping (_ error: Error) -> Void) throws->Void {
         
         /*let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -103,7 +107,16 @@ class NetWorkManager: NSObject {
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        Alamofire.download(downloadUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, to: destination).response{ response in
+        self.downloadrequest = Alamofire.download(downloadUrl, method: .get, parameters: nil, encoding: JSONEncoding.default, to: destination)
+            .downloadProgress(closure: { (progress) in
+                let qosUtility = DispatchQoS.QoSClass.utility
+                DispatchQueue.global(qos: qosUtility).async {
+                    let percent = Float(progress.completedUnitCount / progress.totalUnitCount)
+                    //completionProgress(percent)
+                    print("ダウンロード進捗: \(percent)")
+                }
+            })
+            .response{ response in
             if response.error == nil {
                 //completion(true,response.result.value! as AnyObject)
                 completion(true,(response.destinationURL?.path)!)
@@ -117,7 +130,7 @@ class NetWorkManager: NSObject {
     //ファイルのダウンロード処理
     func upLoad(uploadUrl:String, fileURL:URL,completion: @escaping (AnyObject)->Void, failure: @escaping (_ error: Error) -> Void)->Void {
         //
-        let upfileName = fileURL.lastPathComponent;
+        let upfileName = fileURL.lastPathComponent
         Alamofire.upload(
                 multipartFormData: { (multipartFormData) in
                 multipartFormData.append(fileURL,
@@ -152,6 +165,19 @@ class NetWorkManager: NSObject {
                 }
         })
     }
+    
+    //
+    func pauseDownLoadOrUpLoad()->Void{
+        self.downloadrequest?.suspend()
+        print("ダウンロード一時停止")
+    }
+    
+    
+    func resumeDownLoadOrUpLoad()->Void{
+        self.downloadrequest?.resume()
+        print("ダウンロード再開")
+    }
+    
     
     /*.downloadProgress(closure: <#T##Request.ProgressHandler##Request.ProgressHandler##(Progress) -> Void#>)) {
     (bytesRead, totalBytesRead, totalBytesExpectedToRead) in

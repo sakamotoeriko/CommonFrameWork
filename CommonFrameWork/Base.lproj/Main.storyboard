@@ -195,17 +195,35 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jU-d8-Cc6">
-                                <rect key="frame" x="16" y="194" width="319" height="352"/>
+                                <rect key="frame" x="16" y="283" width="319" height="332"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZM-6k-eSB">
+                                <rect key="frame" x="58" y="236" width="155" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ダウンロード再開"/>
+                                <connections>
+                                    <action selector="resumeDownload:" destination="Yhg-F8-kYU" eventType="touchUpInside" id="4hz-Lm-r03"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lag-mR-0dg">
+                                <rect key="frame" x="74" y="189" width="123" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ダウンロード中止"/>
+                                <connections>
+                                    <action selector="downloadPause:" destination="Yhg-F8-kYU" eventType="touchUpInside" id="xJp-Yp-bi1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="O5s-yN-yMV"/>
                     </view>
                     <connections>
+                        <outlet property="downloadPause" destination="lag-mR-0dg" id="Cl4-la-AUI"/>
+                        <outlet property="downloadResume" destination="nZM-6k-eSB" id="es7-PO-frM"/>
                         <outlet property="networkBtn" destination="d7L-fr-KmC" id="CCC-3b-RvB"/>
                         <outlet property="pushBtn" destination="YwK-my-guK" id="Khg-GX-9AS"/>
                         <outlet property="resultLable" destination="8jU-d8-Cc6" id="ZHG-UT-GbQ"/>

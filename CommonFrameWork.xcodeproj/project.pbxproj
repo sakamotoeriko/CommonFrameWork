@@ -29,6 +29,7 @@
 		58CA387F20B621D3002102A1 /* DownLoadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA387E20B621D3002102A1 /* DownLoadApi.swift */; };
 		58CA388120B6EEA3002102A1 /* UploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA388020B6EEA3002102A1 /* UploadApi.swift */; };
 		58CA388520B6F860002102A1 /* test.pptx in Resources */ = {isa = PBXBuildFile; fileRef = 58CA388420B6F85F002102A1 /* test.pptx */; };
+		58CA388820BAE606002102A1 /* CFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CA388720BAE606002102A1 /* CFError.swift */; };
 		59CD24913AA20388B6950F26 /* Pods_CommonFrameWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		58CA387E20B621D3002102A1 /* DownLoadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownLoadApi.swift; sourceTree = "<group>"; };
 		58CA388020B6EEA3002102A1 /* UploadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadApi.swift; sourceTree = "<group>"; };
 		58CA388420B6F85F002102A1 /* test.pptx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pptx; sourceTree = "<group>"; };
+		58CA388720BAE606002102A1 /* CFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFError.swift; sourceTree = "<group>"; };
 		8A11EFEBF461A617472A945F /* Pods_CommonFrameWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonFrameWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 		5868C8EA20ADC37C00901F5D /* CommonFrameWork */ = {
 			isa = PBXGroup;
 			children = (
+				58CA388620BAE5EC002102A1 /* Error */,
 				5868C90620ADC49000901F5D /* Const */,
 				5868C90720ADC49700901F5D /* Utils */,
 				5868C90820ADC4C700901F5D /* Manager */,
@@ -235,6 +238,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		58CA388620BAE5EC002102A1 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				58CA388720BAE606002102A1 /* CFError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		94D1DC39A56088116A610655 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +373,7 @@
 				58CA384C20B16B48002102A1 /* CommonConst.swift in Sources */,
 				58CA384E20B16D05002102A1 /* LogPrint.swift in Sources */,
 				58CA383E20B101E4002102A1 /* AlbumMode.swift in Sources */,
+				58CA388820BAE606002102A1 /* CFError.swift in Sources */,
 				58CA387920B3FE25002102A1 /* LoginApi.swift in Sources */,
 				58CA385020B1732A002102A1 /* NetWorkManager.swift in Sources */,
 				58CA384220B1041F002102A1 /* AlbumDAO.swift in Sources */,

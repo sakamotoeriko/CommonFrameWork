@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 class NewsViewController: UIViewController{
     
+    @IBOutlet weak var downloadResume: UIButton!
+    @IBOutlet weak var downloadPause: UIButton!
+    
     @IBOutlet weak var resultLable: UILabel!
     @IBOutlet weak var networkBtn: UIButton!
     @IBOutlet weak var pushBtn: UIButton!
@@ -24,6 +27,8 @@ class NewsViewController: UIViewController{
         super.viewDidLoad()
         initApi()
     }
+
+
     
     /// Sent to the view controller when the app receives a memory warning.
     override func didReceiveMemoryWarning() {
@@ -45,13 +50,25 @@ class NewsViewController: UIViewController{
         
     }
     
+    
+    
+    @IBAction func resumeDownload(_ sender: Any) {
+        NetWorkManager.instance.resumeDownLoadOrUpLoad()
+    }
+    
+    @IBAction func downloadPause(_ sender: Any) {
+        NetWorkManager.instance.pauseDownLoadOrUpLoad()
+    }
+    
     @IBAction func networkAction(_ sender: Any) {
         //呼び出す
         //newsApi?.getNews(page: "1", per_page: "3")
         //
         //downLoadApi?.downLoadZip(fileURL: CommonConst.APIImage)
-        let fileURL = Bundle.main.url(forResource: "test", withExtension: "pptx")
-        uploadApi?.UpLoadZip(fileURL: fileURL!);
+        
+        //let fileURL = Bundle.main.url(forResource: "test", withExtension: "pptx")
+        //uploadApi?.UpLoadZip(fileURL: fileURL!);
+        downLoadApi?.downLoadZip(fileURL: CommonConst.APIImage)
     }
     
 }
